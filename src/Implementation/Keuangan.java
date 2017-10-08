@@ -17,8 +17,8 @@ import java.util.List;
 public class Keuangan {
     private String idKeuangan;
     private Date Tanggal;
-    private String id="adm05";
-    private String pw="adm05";
+    public static String id="adm05";
+    public static String pw="adm05";
     private List<Bank> Pemasukan;
     private List<Civitas> Pengeluaran;
 
@@ -51,14 +51,6 @@ public class Keuangan {
     
     public void addPengeluaran(Civitas c){
         Pengeluaran.add(c);
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getPw() {
-        return pw;
     }
     
 }

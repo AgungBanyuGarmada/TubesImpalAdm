@@ -8,7 +8,6 @@ package View;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 /**
  *
@@ -21,7 +20,6 @@ public class Login extends javax.swing.JFrame{
      */
     public Login() {
         initComponents();
-        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -51,8 +49,6 @@ public class Login extends javax.swing.JFrame{
         jPanel1.add(jLabel1, new java.awt.GridBagConstraints());
 
         LoginButton.setText("Login");
-
-        PasswordField.setText("jPasswordField1");
 
         jLabel2.setText("Username");
 
@@ -121,6 +117,11 @@ public class Login extends javax.swing.JFrame{
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    public void setActionListener(ActionListener a){
+        LoginButton.addActionListener(a);
+    }
+    
     public void showMessage(String m) {
         JOptionPane.showMessageDialog(this, m);
     }
@@ -139,6 +140,9 @@ public class Login extends javax.swing.JFrame{
     
     public void setPasswordField(){
         PasswordField.setText("");
+    }
+    public void setUsernameField(){
+        UsernameField.setText("");
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LoginButton;

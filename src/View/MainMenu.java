@@ -5,6 +5,9 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
 /**
  *
  * @author banyu
@@ -28,26 +31,26 @@ public class MainMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        InputDataPemasukanButton = new javax.swing.JButton();
+        InputDataPengeluaranButton = new javax.swing.JButton();
+        LihatDataButton = new javax.swing.JButton();
+        CetakLaporanButton = new javax.swing.JButton();
+        LogoutButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Main Menu");
 
-        jButton1.setText("Input Data Pemasukan");
+        InputDataPemasukanButton.setText("Input Data Pemasukan");
 
-        jButton2.setText("Input Data Pengeluaran");
+        InputDataPengeluaranButton.setText("Input Data Pengeluaran");
 
-        jButton3.setText("Lihat Data");
+        LihatDataButton.setText("Lihat Data");
 
-        jButton4.setText("Cetak Laporan");
+        CetakLaporanButton.setText("Cetak Laporan");
 
-        jButton5.setText("Logout");
+        LogoutButton.setText("Logout");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -60,14 +63,14 @@ public class MainMenu extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(33, 33, 33))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(InputDataPemasukanButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(InputDataPengeluaranButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(LihatDataButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(CetakLaporanButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(122, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton5)
+                .addComponent(LogoutButton)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -76,15 +79,15 @@ public class MainMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(28, 28, 28)
-                .addComponent(jButton1)
+                .addComponent(InputDataPemasukanButton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(InputDataPengeluaranButton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(LihatDataButton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(CetakLaporanButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(jButton5)
+                .addComponent(LogoutButton)
                 .addContainerGap())
         );
 
@@ -94,44 +97,42 @@ public class MainMenu extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainMenu().setVisible(true);
-            }
-        });
+    public void setActionListerner(ActionListener a){
+        CetakLaporanButton.addActionListener(a);
+        InputDataPemasukanButton.addActionListener(a);
+        InputDataPengeluaranButton.addActionListener(a);
+        LihatDataButton.addActionListener(a);
+        LogoutButton.addActionListener(a);
     }
 
+    public JButton getCetakLaporanButton() {
+        return CetakLaporanButton;
+    }
+
+    public JButton getInputDataPemasukanButton() {
+        return InputDataPemasukanButton;
+    }
+
+    public JButton getInputDataPengeluaranButton() {
+        return InputDataPengeluaranButton;
+    }
+
+    public JButton getLihatDataButton() {
+        return LihatDataButton;
+    }
+
+    public JButton getLogoutButton() {
+        return LogoutButton;
+    }
+    
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton CetakLaporanButton;
+    private javax.swing.JButton InputDataPemasukanButton;
+    private javax.swing.JButton InputDataPengeluaranButton;
+    private javax.swing.JButton LihatDataButton;
+    private javax.swing.JButton LogoutButton;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

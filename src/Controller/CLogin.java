@@ -29,11 +29,12 @@ public class CLogin implements ActionListener{
     public void LoginButtonPerformed(ActionEvent e){
         if(login.getUsernameField().equals(Keuangan.id) && login.getPasswordField().equals(Keuangan.pw))
         {
+            CMainMenu MM = new CMainMenu();
             login.setVisible(false);
             login.dispose();
         }
         else
-            //login.showMessage("Username atau Password anda Salah ");
+            login.showMessage("Username atau Password anda Salah ");
             login.setUsernameField();
             login.setPasswordField();
     }

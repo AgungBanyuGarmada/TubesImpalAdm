@@ -24,19 +24,27 @@ public class CMainMenu implements ActionListener{
     }
 
     public void toInputDataPemasukan(){
-        
+        CInputDataPemasukan c=new CInputDataPemasukan();
+        MM.setVisible(false);
+        MM.dispose();
     }
     
     public void toInputDataPengeluaran(){
-        
+        CInputDataPengeluaran c=new CInputDataPengeluaran();
+        MM.setVisible(false);
+        MM.dispose();
     }
     
     public void toLihatData(){
-        
+        CData c=new CData();
+        MM.setVisible(false);
+        MM.dispose();
     }
     
     public void toCetakLaporan(){
-        
+        CCetakLaporan c=new CCetakLaporan();
+        MM.setVisible(false);
+        MM.dispose();
     }
     public void toLogout(){
         CLogin c= new CLogin();

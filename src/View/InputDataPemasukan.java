@@ -40,12 +40,12 @@ public class InputDataPemasukan extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         JenisField = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        IDKaryawanField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         JumlahField = new javax.swing.JTextField();
         BatalButton = new javax.swing.JButton();
         SimpanButton = new javax.swing.JButton();
         TanggalField = new org.jdesktop.swingx.JXDatePicker();
+        IDKaryawanBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,7 +56,7 @@ public class InputDataPemasukan extends javax.swing.JFrame {
 
         jLabel3.setText("Jenis Pemasukan");
 
-        JenisField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose", "Item 2", "Item 3", "Item 4" }));
+        JenisField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SPP", "Yayasan", "Telkom" }));
 
         jLabel4.setText("ID Karyawan");
 
@@ -81,14 +81,18 @@ public class InputDataPemasukan extends javax.swing.JFrame {
                             .addComponent(jLabel5))
                         .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JumlahField)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(TanggalField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(JenisField, javax.swing.GroupLayout.Alignment.LEADING, 0, 180, Short.MAX_VALUE)
-                                    .addComponent(IDKaryawanField, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(49, 49, 49))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JumlahField)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(TanggalField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(JenisField, javax.swing.GroupLayout.Alignment.LEADING, 0, 180, Short.MAX_VALUE))
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(49, 49, 49))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(IDKaryawanBox, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 48, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,7 +121,7 @@ public class InputDataPemasukan extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(IDKaryawanField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(IDKaryawanBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -135,7 +139,7 @@ public class InputDataPemasukan extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BatalButton;
-    private javax.swing.JTextField IDKaryawanField;
+    private javax.swing.JComboBox<String> IDKaryawanBox;
     private javax.swing.JComboBox<String> JenisField;
     private javax.swing.JTextField JumlahField;
     private javax.swing.JButton SimpanButton;

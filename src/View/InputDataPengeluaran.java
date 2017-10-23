@@ -5,6 +5,10 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
+import java.sql.Date;
+import javax.swing.JButton;
+
 /**
  *
  * @author banyu
@@ -149,4 +153,32 @@ public class InputDataPengeluaran extends javax.swing.JFrame {
         IDKaryawanBox.addItem(x);
     }
     
+    public JButton getBatalButton() {
+        return BatalButton;
+    }
+
+    public String getIDKaryawanField() {
+        return IDKaryawanBox.getItemAt(IDKaryawanBox.getSelectedIndex());
+    }
+
+    public String getJenisField() {
+        return JenisField.toString();
+    }
+
+    public int getJumlahField() {
+        return Integer.parseInt(JumlahField.toString());
+    }
+
+    public JButton getSimpanButton() {
+        return SimpanButton;
+    }
+
+    public Date getTanggalField() {
+        return (Date) TanggalField.getDate();
+    }
+
+    public void setActionListener(ActionListener ae){
+        BatalButton.addActionListener(ae);
+        SimpanButton.addActionListener(ae);
+    }
 }

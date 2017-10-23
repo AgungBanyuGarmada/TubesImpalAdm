@@ -151,12 +151,16 @@ public class InputDataPemasukan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 
+    public void setIDKaryawanBox(String x){
+        IDKaryawanBox.addItem(x);
+    }
+    
     public JButton getBatalButton() {
         return BatalButton;
     }
 
     public String getIDKaryawanField() {
-        return IDKaryawanField.toString();
+        return IDKaryawanBox.getItemAt(IDKaryawanBox.getSelectedIndex());
     }
 
     public String getJenisField() {

@@ -1,7 +1,7 @@
 package Model;
 
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 /*
@@ -17,8 +17,6 @@ import java.util.List;
 public class Keuangan {
     private String idKeuangan;
     private Date Tanggal;
-    public static String id="adm05";
-    public static String pw="adm05";
     private List<Bank> Pemasukan;
     private List<Civitas> Pengeluaran;
 

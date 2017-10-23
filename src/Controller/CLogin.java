@@ -18,6 +18,8 @@ import java.util.logging.Logger;
  */
 public class CLogin implements ActionListener{
     private Login login;
+    public String id="adm05";
+    public String pw="adm05";
     
     public CLogin() {
         login = new Login();
@@ -27,7 +29,7 @@ public class CLogin implements ActionListener{
     }
     
     public void LoginButtonPerformed(ActionEvent e){
-        if(login.getUsernameField().equals(Keuangan.id) && login.getPasswordField().equals(Keuangan.pw))
+        if(login.getUsernameField().equals(id) && login.getPasswordField().equals(pw))
         {
             CMainMenu MM = new CMainMenu();
             login.setVisible(false);

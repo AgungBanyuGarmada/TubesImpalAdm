@@ -58,7 +58,7 @@ public class InputDataPemasukan extends javax.swing.JFrame {
 
         JenisField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SPP", "Yayasan", "Telkom" }));
 
-        jLabel4.setText("ID Karyawan");
+        jLabel4.setText("ID Bank");
 
         jLabel5.setText("Jumlah");
 

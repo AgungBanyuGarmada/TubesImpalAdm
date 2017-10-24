@@ -54,7 +54,7 @@ public class InputDataPengeluaran extends javax.swing.JFrame {
 
         JenisField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gaji", "Infrastruktur", "Beasiswa", "Logistik" }));
 
-        jLabel4.setText("ID Karyawan");
+        jLabel4.setText("ID Civitas");
 
         jLabel5.setText("Jumlah");
 

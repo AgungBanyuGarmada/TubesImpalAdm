@@ -7,6 +7,7 @@ package Model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -20,20 +21,32 @@ public class Database {
     
     private Statement stmt = null;
     private Connection c = null;
+    private ResultSet rs=null;
     
      public void buatKoneksi() {
         try {
-            String url = "jdbc:mysql://localhost:3306/impal";
+            String url = "jdbc:mysql://localhost:3306/keuangan telkom";
             String hostname = "root";
             String password = "";
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 c = DriverManager.getConnection(url, hostname, password);
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (SQLException exception) {
-            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, exception);
+        } catch (SQLException ex) {
+        }
+    }
+    
+     public void saveKaryawan(){
+         try {
+            buatKoneksi();
+            String query = "INSERT INTO Rektor(NIP, nama, Id_Pemasukan, Id_Pengeluaran) "
+                    +"VALUES ('a'.'a','a','a',)";
+            stmt.execute(query, Statement.RETURN_GENERATED_KEYS);
+            rs = stmt.getGeneratedKeys();
+            c.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

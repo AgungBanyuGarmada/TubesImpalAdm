@@ -25,15 +25,17 @@ public class Database {
     
      public void buatKoneksi() {
         try {
-            String url = "jdbc:mysql://localhost:3306/keuangan telkom";
+            String url = "jdbc:mysql://localhost:3306/KeuanganTelkom";
             String hostname = "root";
             String password = "";
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 c = DriverManager.getConnection(url, hostname, password);
             } catch (ClassNotFoundException ex) {
+                System.err.println("koneksi gagal" +ex.getMessage());
             }
         } catch (SQLException ex) {
+            System.err.println("koneksi gagal" +ex.getMessage());
         }
     }
     

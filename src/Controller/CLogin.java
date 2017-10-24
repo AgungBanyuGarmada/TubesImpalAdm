@@ -5,7 +5,7 @@
  */
 package Controller;
 
-import Model.Keuangan;
+import Model.Pemasukan;
 import View.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

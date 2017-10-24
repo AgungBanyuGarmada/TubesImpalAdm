@@ -14,22 +14,19 @@ import java.util.List;
  *
  * @author Syaehoni
  */
-public class Keuangan {
+public class Pengeluaran {
     private String idKeuangan;
     private Date Tanggal;
     private String Jenis;
-    private Bank Pemasukan;
     private Civitas Pengeluaran;
 
-    public Keuangan(String idKeuangan, Date Tanggal, String Jenis) {
+    public Pengeluaran(String idKeuangan, Date Tanggal, String Jenis, Civitas Pengeluaran) {
         this.idKeuangan = idKeuangan;
         this.Tanggal = Tanggal;
         this.Jenis = Jenis;
+        this.Pengeluaran = Pengeluaran;
     }
 
-    public void setPemasukan(Bank Pemasukan) {
-        this.Pemasukan = Pemasukan;
-    }
 
     public void setPengeluaran(Civitas Pengeluaran) {
         this.Pengeluaran = Pengeluaran;
@@ -41,10 +38,6 @@ public class Keuangan {
 
     public Date getTanggal() {
         return Tanggal;
-    }
-
-    public Bank getPemasukan() {
-        return Pemasukan;
     }
 
     public Civitas getPengeluaran() {

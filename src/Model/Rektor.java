@@ -16,12 +16,14 @@ import java.util.List;
 public class Rektor {
     private String nip;
     private String nama;
-    private List<Keuangan> Laporan;
+    private List<Pemasukan> pemasukan;
+    private List<Pengeluaran> pengeluaran;
 
-    public Rektor(String nip, String nama, Keuangan Laporan) {
+    public Rektor(String nip, String nama, List<Pemasukan> pemasukan, List<Pengeluaran> pengeluaran) {
         this.nip = nip;
         this.nama = nama;
-        this.Laporan.add(Laporan);
+        this.pemasukan = pemasukan;
+        this.pengeluaran = pengeluaran;
     }
 
     public String getNip() {
@@ -32,11 +34,12 @@ public class Rektor {
         return nama;
     }
 
-    public List<Keuangan> getLaporan() {
-        return Laporan;
+    public List<Pemasukan> getPemasukan() {
+        return pemasukan;
     }
-    
-    public void addLaporan (Keuangan k){
-        Laporan.add(k);
+
+    public List<Pengeluaran> getPengeluaran() {
+        return pengeluaran;
     }
+
 }

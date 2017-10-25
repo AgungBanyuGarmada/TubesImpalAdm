@@ -30,20 +30,22 @@ public class Database {
             String password = "";
             try {
                 Class.forName("com.mysql.jdbc.Driver");
-                c = DriverManager.getConnection(url, hostname, password);
+                c = DriverManager.getConnection("jdbc:mysql://localhost:3306/KeuanganTelkom", "root", "");
+                stmt=c.createStatement();
             } catch (ClassNotFoundException ex) {
-                System.err.println("koneksi gagal" +ex.getMessage());
+                Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
             }
         } catch (SQLException ex) {
-            System.err.println("koneksi gagal" +ex.getMessage());
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-     public void saveKaryawan(){
+     public void LaporanPemasukan(Pemasukan p){
          try {
             buatKoneksi();
-            String query = "INSERT INTO Rektor(NIP, nama, Id_Pemasukan, Id_Pengeluaran) "
-                    +"VALUES ('a'.'a','a','a',)";
+            String query = "INSERT Pemasukan (Id_Pemasukan, Tanggal, Jenis, Saldo, Kode Bank) "
+                    +"VALUES ('"+p.getIdKeuangan()+"','"+p.getTanggal()
+                    +"',"+p.getJenis()+",'"+p.getNominal()+"','"+p.getPemasukan().getKodeBank()+"')";
             stmt.execute(query, Statement.RETURN_GENERATED_KEYS);
             rs = stmt.getGeneratedKeys();
             c.close();
@@ -51,4 +53,19 @@ public class Database {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+     
+    public void LaporanPengeluaran(Pengeluaran p){
+         try {
+            buatKoneksi();
+            String query = "INSERT Pemasukan (Id_Pemasukan, Tanggal, Jenis, Saldo, Kode Bank) "
+                    +"VALUES ('"+p.getIdKeuangan()+"','"+p.getTanggal()
+                    +"',"+p.getJenis()+",'"+p.getNominal()+"','"+p.getPengeluaran().getKodeCivitas()+"')";
+            stmt.execute(query, Statement.RETURN_GENERATED_KEYS);
+            rs = stmt.getGeneratedKeys();
+            c.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 }

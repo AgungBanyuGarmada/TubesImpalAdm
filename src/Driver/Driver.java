@@ -5,15 +5,12 @@
  */
 package Driver;
 import Controller.*;
-import Model.Database;
 /**
  *
  * @author banyu
  */
 public class Driver {
-    static Database d;
     public static void main(String[] args) {
-        d.saveKaryawan();
         CLogin mulai= new CLogin();
     }
 }

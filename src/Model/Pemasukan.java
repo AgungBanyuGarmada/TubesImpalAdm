@@ -18,13 +18,19 @@ public class Pemasukan {
     private String idKeuangan;
     private Date Tanggal;
     private String Jenis;
+    private double Nominal;
     private Bank Pemasukan;
 
-    public Pemasukan(String idKeuangan, Date Tanggal, String Jenis, Bank Pemasukan) {
+    public Pemasukan(String idKeuangan, Date Tanggal, String Jenis, double Nominal, Bank Pemasukan) {
         this.idKeuangan = idKeuangan;
         this.Tanggal = Tanggal;
         this.Jenis = Jenis;
+        this.Nominal = Nominal;
         this.Pemasukan = Pemasukan;
+    }
+
+    public double getNominal() {
+        return Nominal;
     }
 
     public void setPemasukan(Bank Pemasukan) {

@@ -13,12 +13,10 @@ package Model;
 public class Bank {
     private String KodeBank;
     private String NamaBank;
-    private double Saldo;
 
-    public Bank(String KodeBank, String NamaBank, double Saldo) {
+    public Bank(String KodeBank, String NamaBank) {
         this.KodeBank = KodeBank;
         this.NamaBank = NamaBank;
-        this.Saldo = Saldo;
     }
 
     public String getKodeBank() {
@@ -27,10 +25,6 @@ public class Bank {
 
     public String getNamaBank() {
         return NamaBank;
-    }
-
-    public double getSaldo() {
-        return Saldo;
     }
     
 }

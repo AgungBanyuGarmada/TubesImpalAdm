@@ -5,7 +5,6 @@
  */
 package Controller;
 
-import Model.Pemasukan;
 import View.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,6 +25,8 @@ public class CLogin implements ActionListener{
         login.setLocationRelativeTo(null);
         login.setVisible(true);
         login.setActionListener(this); //add action listener utk semua button
+//        Database d=new Database();
+//        d.saveKaryawan();
     }
     
     public void LoginButtonPerformed(ActionEvent e){

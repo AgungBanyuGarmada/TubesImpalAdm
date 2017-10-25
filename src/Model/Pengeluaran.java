@@ -17,16 +17,21 @@ import java.util.List;
 public class Pengeluaran {
     private String idKeuangan;
     private Date Tanggal;
+    private double Nominal;
     private String Jenis;
     private Civitas Pengeluaran;
 
-    public Pengeluaran(String idKeuangan, Date Tanggal, String Jenis, Civitas Pengeluaran) {
+    public Pengeluaran(String idKeuangan, Date Tanggal, double Nominal, String Jenis, Civitas Pengeluaran) {
         this.idKeuangan = idKeuangan;
         this.Tanggal = Tanggal;
+        this.Nominal = Nominal;
         this.Jenis = Jenis;
         this.Pengeluaran = Pengeluaran;
     }
 
+    public double getNominal() {
+        return Nominal;
+    }
 
     public void setPengeluaran(Civitas Pengeluaran) {
         this.Pengeluaran = Pengeluaran;

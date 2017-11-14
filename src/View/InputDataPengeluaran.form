@@ -47,7 +47,7 @@
                               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="IDKaryawanBox" min="-2" pref="180" max="-2" attributes="0"/>
+                              <Component id="IDCivitasBox" min="-2" pref="180" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -89,7 +89,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="IDKaryawanBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="IDCivitasBox" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -151,6 +151,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="JumlahField">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="BatalButton">
       <Properties>
@@ -164,7 +167,7 @@
     </Component>
     <Component class="org.jdesktop.swingx.JXDatePicker" name="TanggalField">
     </Component>
-    <Component class="javax.swing.JComboBox" name="IDKaryawanBox">
+    <Component class="javax.swing.JComboBox" name="IDCivitasBox">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>

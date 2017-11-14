@@ -68,4 +68,41 @@ public class Database {
         }
     }
     
+    public Bank getBank(String idBank)  {
+        try {
+            Bank b=null;
+            buatKoneksi();
+            String q = "select Kode_Bank, Nama_Bank from Bank where Kode_Bank = '"+idBank+"'";
+            stmt = c.createStatement();
+            rs = stmt.executeQuery(q);
+            while(rs.next()){
+                b = new Bank(rs.getString("Kode_Bank"),rs.getString("Nama_Bank"));
+            }
+            c.close();
+            return b;
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+    
+    public Civitas getCivitas(String IDC)  {
+        try {
+            Civitas b=null;
+            buatKoneksi();
+            String q = "select Kode_Civitas, Nama, Nominal from Civitas where Kode_Civitas = '"+IDC+"'";
+            stmt = c.createStatement();
+            rs = stmt.executeQuery(q);
+            while(rs.next()){
+                b = new Civitas(rs.getString("Kode_Civitas"),rs.getString("nama"),rs.getString("Jabatan"),rs.getDouble("Nominal"));
+            }
+            c.close();
+            return b;
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
 }

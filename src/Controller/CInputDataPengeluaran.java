@@ -5,6 +5,10 @@
  */
 package Controller;
 
+import Model.Database;
+import Model.Pemasukan;
+import Model.Pengeluaran;
+import View.InputDataPengeluaran;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,9 +18,41 @@ import java.awt.event.ActionListener;
  */
 public class CInputDataPengeluaran implements ActionListener {
 
+        private InputDataPengeluaran IDP = new InputDataPengeluaran();
+        private Database DB = new Database();
+        private Pengeluaran P;
+        public static long iDPemasukan = 1451728391;
+    
+    
+    public CInputDataPengeluaran(){
+        IDP.setLocationRelativeTo(null);
+        IDP.setVisible(true);
+        IDP.setActionListener(this);
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try{
+            if(e.getSource().equals(IDP.getBatalButton())){
+                CMainMenu MM = new CMainMenu();
+                IDP.setVisible(false);
+                IDP.dispose();
+            }else if (e.getSource().equals(IDP.getSimpanButton())){
+                P= new Pengeluaran(String.valueOf(iDPemasukan+1)
+                        , IDP.getTanggalField()
+                        , DB.getCivitas(IDP.getIDCivitasField()).getNominal()
+                        , IDP.getJenisField()
+                        , DB.getCivitas(IDP.getIDCivitasField()));
+                DB.LaporanPengeluaran(P);
+                IDP.showMessage("Data Telah Tersimpan");
+                CMainMenu MM = new CMainMenu();
+                IDP.setVisible(false);
+                IDP.dispose();
+            }
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
     }
+    
     
 }

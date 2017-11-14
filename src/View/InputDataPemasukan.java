@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.sql.Date;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import org.jdesktop.swingx.JXDatePicker;
 
@@ -45,7 +46,7 @@ public class InputDataPemasukan extends javax.swing.JFrame {
         BatalButton = new javax.swing.JButton();
         SimpanButton = new javax.swing.JButton();
         TanggalField = new org.jdesktop.swingx.JXDatePicker();
-        IDKaryawanBox = new javax.swing.JComboBox<>();
+        IDBankBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,7 +92,7 @@ public class InputDataPemasukan extends javax.swing.JFrame {
                                         .addGap(0, 0, Short.MAX_VALUE)))
                                 .addGap(49, 49, 49))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(IDKaryawanBox, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(IDBankBox, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 48, Short.MAX_VALUE)
@@ -121,7 +122,7 @@ public class InputDataPemasukan extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(IDKaryawanBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(IDBankBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -139,7 +140,7 @@ public class InputDataPemasukan extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BatalButton;
-    private javax.swing.JComboBox<String> IDKaryawanBox;
+    private javax.swing.JComboBox<String> IDBankBox;
     private javax.swing.JComboBox<String> JenisField;
     private javax.swing.JTextField JumlahField;
     private javax.swing.JButton SimpanButton;
@@ -151,16 +152,20 @@ public class InputDataPemasukan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 
-    public void setIDKaryawanBox(String x){
-        IDKaryawanBox.addItem(x);
+    public void setIDBankBox(String x){
+        IDBankBox.addItem(x);
+    }
+    
+    public void showMessage(String m) {
+        JOptionPane.showMessageDialog(this, m);
     }
     
     public JButton getBatalButton() {
         return BatalButton;
     }
 
-    public String getIDKaryawanField() {
-        return IDKaryawanBox.getItemAt(IDKaryawanBox.getSelectedIndex());
+    public String getIDBankField() {
+        return IDBankBox.getItemAt(IDBankBox.getSelectedIndex());
     }
 
     public String getJenisField() {

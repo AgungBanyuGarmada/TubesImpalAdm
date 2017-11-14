@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  * @author banyu
  */
 public class CMainMenu implements ActionListener{
-        MainMenu MM;
+        private MainMenu MM;
     
     public CMainMenu() {
         MM = new MainMenu();

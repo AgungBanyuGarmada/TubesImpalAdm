@@ -8,6 +8,7 @@ package View;
 import java.awt.event.ActionListener;
 import java.sql.Date;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -41,7 +42,7 @@ public class InputDataPengeluaran extends javax.swing.JFrame {
         BatalButton = new javax.swing.JButton();
         SimpanButton = new javax.swing.JButton();
         TanggalField = new org.jdesktop.swingx.JXDatePicker();
-        IDKaryawanBox = new javax.swing.JComboBox<>();
+        IDCivitasBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,6 +58,8 @@ public class InputDataPengeluaran extends javax.swing.JFrame {
         jLabel4.setText("ID Civitas");
 
         jLabel5.setText("Jumlah");
+
+        JumlahField.setEditable(false);
 
         BatalButton.setText("Batal");
 
@@ -86,7 +89,7 @@ public class InputDataPengeluaran extends javax.swing.JFrame {
                                     .addComponent(TanggalField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(49, 49, 49))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(IDKaryawanBox, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(IDCivitasBox, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -116,7 +119,7 @@ public class InputDataPengeluaran extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(IDKaryawanBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(IDCivitasBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -137,7 +140,7 @@ public class InputDataPengeluaran extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BatalButton;
-    private javax.swing.JComboBox<String> IDKaryawanBox;
+    private javax.swing.JComboBox<String> IDCivitasBox;
     private javax.swing.JComboBox<String> JenisField;
     private javax.swing.JTextField JumlahField;
     private javax.swing.JButton SimpanButton;
@@ -150,23 +153,23 @@ public class InputDataPengeluaran extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void setIDKaryawanBox(String x){
-        IDKaryawanBox.addItem(x);
+        IDCivitasBox.addItem(x);
     }
     
     public JButton getBatalButton() {
         return BatalButton;
     }
 
-    public String getIDKaryawanField() {
-        return IDKaryawanBox.getItemAt(IDKaryawanBox.getSelectedIndex());
+    public String getIDCivitasField() {
+        return IDCivitasBox.getItemAt(IDCivitasBox.getSelectedIndex());
     }
 
     public String getJenisField() {
         return JenisField.toString();
     }
 
-    public int getJumlahField() {
-        return Integer.parseInt(JumlahField.toString());
+    public void setJumlahField(String x) {
+        JumlahField.setText(x);
     }
 
     public JButton getSimpanButton() {
@@ -180,5 +183,9 @@ public class InputDataPengeluaran extends javax.swing.JFrame {
     public void setActionListener(ActionListener ae){
         BatalButton.addActionListener(ae);
         SimpanButton.addActionListener(ae);
+    }
+    
+    public void showMessage(String m) {
+        JOptionPane.showMessageDialog(this, m);
     }
 }

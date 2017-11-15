@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -43,7 +44,7 @@ public class Database {
      public void LaporanPemasukan(Pemasukan p){
          try {
             buatKoneksi();
-            String query = "INSERT Pemasukan (Id_Pemasukan, Tanggal, Jenis, Saldo, Kode Bank) "
+            String query = "INSERT Pemasukan (Id_Pemasukan, Tanggal, Jenis, Saldo, Kode_Bank) "
                     +"VALUES ('"+p.getIdKeuangan()+"','"+p.getTanggal()
                     +"',"+p.getJenis()+",'"+p.getNominal()+"','"+p.getPemasukan().getKodeBank()+"')";
             stmt.execute(query, Statement.RETURN_GENERATED_KEYS);
@@ -57,7 +58,7 @@ public class Database {
     public void LaporanPengeluaran(Pengeluaran p){
          try {
             buatKoneksi();
-            String query = "INSERT Pemasukan (Id_Pemasukan, Tanggal, Jenis, Saldo, Kode Bank) "
+            String query = "INSERT Pemasukan (Id_Pengeluaran, Tanggal, Jenis, Saldo, Kode_Civitas) "
                     +"VALUES ('"+p.getIdKeuangan()+"','"+p.getTanggal()
                     +"',"+p.getJenis()+",'"+p.getNominal()+"','"+p.getPengeluaran().getKodeCivitas()+"')";
             stmt.execute(query, Statement.RETURN_GENERATED_KEYS);
@@ -65,6 +66,45 @@ public class Database {
             c.close();
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public ArrayList<Pemasukan> getListPemasukan()  {
+        try {
+            ArrayList<Pemasukan> listPemasukan  = new ArrayList<>();
+            buatKoneksi();
+            String q = "select idPemasukan, Tanggal, Jenis, Saldo, Kode_Bank from Pemasukan";
+            stmt = c.createStatement();
+            rs = stmt.executeQuery(q);
+            while(rs.next()){
+                Pemasukan p = new Pemasukan(rs.getString("idPemasukan"),rs.getDate("Tanggal"),rs.getString("Jenis"),rs.getDouble("Saldo"),getBank(rs.getString("Kode_Bank")));
+                listPemasukan.add(p);
+            }
+            c.close();
+            return listPemasukan;
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+    
+    public ArrayList<Pengeluaran> getListPengeluaran()  {
+        try {
+            ArrayList<Pengeluaran> listPengeluaran  = new ArrayList<>();
+            buatKoneksi();
+            String q = "select idPengeluaran, Tanggal, Jenis, Saldo, Kode_Civitas from Pengeluaran";
+            stmt = c.createStatement();
+            rs = stmt.executeQuery(q);
+            while(rs.next()){
+                Pengeluaran p = new Pengeluaran(rs.getString("idPengeluaran"),rs.getDate("Tanggal"),rs.getDouble("Saldo"),rs.getString("Jenis"),getCivitas(rs.getString("Kode_civitas")));
+                listPengeluaran.add(p);
+            }
+            c.close();
+            return listPengeluaran;
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return null;
         }
     }
     

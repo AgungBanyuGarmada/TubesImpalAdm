@@ -5,6 +5,12 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author banyu
@@ -33,13 +39,13 @@ public class Data extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         PemasukanUrutkanBox = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        PemasukanTable = new javax.swing.JTable();
         PemasukanKembaliButton = new javax.swing.JButton();
         OKPemasukanButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         PengeluaranKembaliButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        PengeluaranTable = new javax.swing.JTable();
         PengeluaranUrutkanBox = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         OKPengeluaranButton = new javax.swing.JButton();
@@ -50,7 +56,8 @@ public class Data extends javax.swing.JFrame {
 
         PemasukanUrutkanBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose", "Item 2", "Item 3", "Item 4" }));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        PemasukanTable.setAutoCreateRowSorter(true);
+        PemasukanTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -69,7 +76,8 @@ public class Data extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        PemasukanTable.setEnabled(false);
+        jScrollPane1.setViewportView(PemasukanTable);
 
         PemasukanKembaliButton.setText("Kembali");
 
@@ -112,7 +120,8 @@ public class Data extends javax.swing.JFrame {
 
         PengeluaranKembaliButton.setText("Kembali");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        PengeluaranTable.setAutoCreateRowSorter(true);
+        PengeluaranTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -123,7 +132,8 @@ public class Data extends javax.swing.JFrame {
                 "No Laporan", "Jenis Laporan", "Nominal", "Tanggal"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        PengeluaranTable.setEnabled(false);
+        jScrollPane2.setViewportView(PengeluaranTable);
 
         PengeluaranUrutkanBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose", "Item 2", "Item 3", "Item 4" }));
 
@@ -198,8 +208,10 @@ public class Data extends javax.swing.JFrame {
     private javax.swing.JButton OKPemasukanButton;
     private javax.swing.JButton OKPengeluaranButton;
     private javax.swing.JButton PemasukanKembaliButton;
+    private javax.swing.JTable PemasukanTable;
     private javax.swing.JComboBox<String> PemasukanUrutkanBox;
     private javax.swing.JButton PengeluaranKembaliButton;
+    private javax.swing.JTable PengeluaranTable;
     private javax.swing.JComboBox<String> PengeluaranUrutkanBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -209,7 +221,50 @@ public class Data extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
+
+    public void setActionListener(ActionListener a){
+        PemasukanKembaliButton.addActionListener(a);
+        PengeluaranKembaliButton.addActionListener(a);
+        OKPemasukanButton.addActionListener(a);
+        OKPengeluaranButton.addActionListener(a);
+    }
+
+    public JButton getOKPemasukanButton() {
+        return OKPemasukanButton;
+    }
+    public JButton getOKPengeluaranButton() {
+        return OKPengeluaranButton;
+    }
+    public JButton getPemasukanKembaliButton() {
+        return PemasukanKembaliButton;
+    }
+
+    public String getPemasukanUrutkanBox() {
+        return PemasukanUrutkanBox.getSelectedItem().toString();
+    }
+
+    public JButton getPengeluaranKembaliButton() {
+        return PengeluaranKembaliButton;
+    }
+
+    public String getPengeluaranUrutkanBox() {
+        return PengeluaranUrutkanBox.getSelectedItem().toString();
+    }
+
+    public void setPemasukanTable(Object[][] a,Object[] b ) {
+        this.PemasukanTable.setModel(new DefaultTableModel(a, b){
+        public boolean isCellEditable(int row,int column){
+            return false;
+        }
+        });
+    }
+
+    public void setPengeluaranTable(Object[][] a,Object[] b ) {
+        this.PengeluaranTable.setModel(new DefaultTableModel(a, b){
+        public boolean isCellEditable(int row,int column){
+            return false;
+        }
+        });
+    }
 }

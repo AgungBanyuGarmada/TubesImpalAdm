@@ -76,7 +76,8 @@ public class Database {
             stmt = c.createStatement();
             rs = stmt.executeQuery(q);
             while(rs.next()){
-                Pemasukan p = new Pemasukan(rs.getString("idPemasukan"),rs.getDate("Tanggal"),rs.getString("Jenis"),rs.getDouble("Saldo"),getBank(rs.getString("Kode_Bank")));
+                Pemasukan p = new Pemasukan(rs.getString("idPemasukan"),rs.getDate("Tanggal"),
+                        rs.getString("Jenis"),rs.getDouble("Saldo"),getBank(rs.getString("Kode_Bank")));
                 listPemasukan.add(p);
             }
             c.close();
@@ -96,7 +97,8 @@ public class Database {
             stmt = c.createStatement();
             rs = stmt.executeQuery(q);
             while(rs.next()){
-                Pengeluaran p = new Pengeluaran(rs.getString("idPengeluaran"),rs.getDate("Tanggal"),rs.getDouble("Saldo"),rs.getString("Jenis"),getCivitas(rs.getString("Kode_civitas")));
+                Pengeluaran p = new Pengeluaran(rs.getString("idPengeluaran"),rs.getDate("Tanggal"),rs.
+                        getDouble("Saldo"),rs.getString("Jenis"),getCivitas(rs.getString("Kode_civitas")));
                 listPengeluaran.add(p);
             }
             c.close();
@@ -135,7 +137,8 @@ public class Database {
             stmt = c.createStatement();
             rs = stmt.executeQuery(q);
             while(rs.next()){
-                b = new Civitas(rs.getString("Kode_Civitas"),rs.getString("nama"),rs.getString("Jabatan"),rs.getDouble("Nominal"));
+                b = new Civitas(rs.getString("Kode_Civitas"),rs.getString("nama"),
+                        rs.getString("Jabatan"),rs.getDouble("Nominal"));
             }
             c.close();
             return b;

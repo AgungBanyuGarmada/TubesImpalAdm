@@ -5,11 +5,13 @@
  */
 package Controller;
 
+import Model.Bank;
 import Model.Database;
 import Model.Pemasukan;
 import View.InputDataPemasukan;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  *
@@ -20,12 +22,16 @@ public class CInputDataPemasukan implements ActionListener{
     private Database DB = new Database();
     private Pemasukan P;
     public static long iDPemasukan = 1451728391;
-    
+    private ArrayList<Bank> bank = new ArrayList<>(); 
     
     public CInputDataPemasukan(){
         IDP.setLocationRelativeTo(null);
         IDP.setVisible(true);
         IDP.setActionListener(this);
+        bank=DB.getAllBank();
+        for (int i = 0; i < bank.size(); i++) {
+            IDP.setIDBankBox(bank.get(i).getKodeBank());
+        }
     }
     
     @Override

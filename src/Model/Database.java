@@ -129,6 +129,26 @@ public class Database {
         }
     }
     
+    public ArrayList<Bank> getAllBank()  {
+        try {
+            buatKoneksi();
+            String q = "select Kode_Bank, Nama_Bank from Bank";
+            stmt = c.createStatement();
+            rs = stmt.executeQuery(q);
+            ArrayList<Bank> b = new ArrayList<>();
+            b=null;
+            while(rs.next()){
+                b.add(new Bank(rs.getString("Kode_Bank"),rs.getString("Nama_Bank")));
+            }
+            c.close();
+            return b;
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+    
     public Civitas getCivitas(String IDC)  {
         try {
             Civitas b=null;
@@ -139,6 +159,27 @@ public class Database {
             while(rs.next()){
                 b = new Civitas(rs.getString("Kode_Civitas"),rs.getString("nama"),
                         rs.getString("Jabatan"),rs.getDouble("Nominal"));
+            }
+            c.close();
+            return b;
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+    
+    public ArrayList<Civitas> getAllCivitas(String IDC)  {
+        try {
+            ArrayList<Civitas> b= new ArrayList<>();
+            b=null;
+            buatKoneksi();
+            String q = "select Kode_Civitas, Nama, Nominal from Civitas ";
+            stmt = c.createStatement();
+            rs = stmt.executeQuery(q);
+            while(rs.next()){
+                b.add(new Civitas(rs.getString("Kode_Civitas"),rs.getString("nama"),
+                        rs.getString("Jabatan"),rs.getDouble("Nominal")));
             }
             c.close();
             return b;

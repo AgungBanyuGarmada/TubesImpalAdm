@@ -37,7 +37,7 @@ public class CData implements ActionListener {
             data[i][1] = P.getJenis();
             data[i][2] = String.valueOf(P.getNominal());
             data[i][3] = P.getTanggal().toString();
-            data[i][3] = P.getPemasukan().getNamaBank();
+            data[i][3] = P.getPemasukan().getKodeBank();
             i++;
         }
         

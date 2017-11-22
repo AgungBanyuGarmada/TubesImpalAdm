@@ -5,12 +5,14 @@
  */
 package Controller;
 
+import Model.Civitas;
 import Model.Database;
 import Model.Pemasukan;
 import Model.Pengeluaran;
 import View.InputDataPengeluaran;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  *
@@ -22,12 +24,15 @@ public class CInputDataPengeluaran implements ActionListener {
         private Database DB = new Database();
         private Pengeluaran P;
         public static long iDPemasukan = 1451728391;
-    
+        private ArrayList<Civitas> civitas = new ArrayList<>();
     
     public CInputDataPengeluaran(){
         IDP.setLocationRelativeTo(null);
         IDP.setVisible(true);
         IDP.setActionListener(this);
+        for (int i = 0; i < civitas.size(); i++) {
+            IDP.setIDKaryawanBox(civitas.get(i).getKodeCivitas());
+        }
     }
     
     @Override

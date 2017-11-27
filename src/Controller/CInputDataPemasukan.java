@@ -21,7 +21,9 @@ public class CInputDataPemasukan implements ActionListener{
     private InputDataPemasukan IDP = new InputDataPemasukan();
     private Database DB = new Database();
     private Pemasukan P;
-    public static long iDPemasukan = 1451728391;
+    
+    public long IDPemasukan = DB.getIdPemasukan();
+    
     private ArrayList<Bank> bank = new ArrayList<>(); 
     
     public CInputDataPemasukan(){
@@ -38,19 +40,20 @@ public class CInputDataPemasukan implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         try{
             if(e.getSource().equals(IDP.getBatalButton())){
-                CMainMenu MM = new CMainMenu();
                 IDP.setVisible(false);
                 IDP.dispose();
+                CMainMenu MM = new CMainMenu();
             }else if (e.getSource().equals(IDP.getSimpanButton())){
-                P= new Pemasukan(String.valueOf(iDPemasukan+1)
-                        , IDP.getTanggalField()
+                IDPemasukan++;
+                P= new Pemasukan(String.valueOf(IDPemasukan)
+                        , new java.sql.Date(IDP.getTanggalField().getTime())
                         , IDP.getJenisField(), 
                         IDP.getJumlahField(), DB.getBank(IDP.getIDBankField()));
                 DB.LaporanPemasukan(P);
                 IDP.showMessage("Data Telah Tersimpan");
-                CMainMenu MM = new CMainMenu();
                 IDP.setVisible(false);
                 IDP.dispose();
+                CMainMenu MM = new CMainMenu();
             }
         }catch(Exception ex){
             ex.printStackTrace();

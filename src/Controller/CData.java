@@ -25,9 +25,9 @@ public class CData implements ActionListener {
         GData.setLocationRelativeTo(null);
         GData.setVisible(true);
         GData.setActionListener(this);
-        
+                
         pemasukan=D.getListPemasukan();
-        pengeluaran=D.getListPengeluaran();
+        pengeluaran=D.getListPengeluaran();        
         
         String c[]= {"No Laporan","Jenis Laporan","Nominal","Tanggal","Kode Bank"};
         String data[][] = new String[pemasukan.size()][c.length];
@@ -37,21 +37,21 @@ public class CData implements ActionListener {
             data[i][1] = P.getJenis();
             data[i][2] = String.valueOf(P.getNominal());
             data[i][3] = P.getTanggal().toString();
-            data[i][3] = P.getPemasukan().getKodeBank();
+            data[i][4] = P.getPemasukan().getKodeBank();
             i++;
         }
         
         GData.setPemasukanTable(data, c);
         
         String c1[]= {"No Laporan","Jenis Laporan","Nominal","Tanggal","Kode Civitas"};
-        String data1[][] = new String[pemasukan.size()][c1.length];
+        String data1[][] = new String[pengeluaran.size()][c1.length];
         i = 0;
         for(Pengeluaran P: pengeluaran){
             data1[i][0] = P.getIdKeuangan();
             data1[i][1] = P.getJenis();
             data1[i][2] = String.valueOf(P.getNominal());
             data1[i][3] = P.getTanggal().toString();
-            data1[i][3] = P.getPengeluaran().getKodeCivitas();
+            data1[i][4] = P.getPengeluaran().getKodeCivitas();
             i++;
         }
         
@@ -64,9 +64,9 @@ public class CData implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         try{
             if(e.getSource().equals(GData.getPemasukanKembaliButton())||e.getSource().equals(GData.getPengeluaranKembaliButton())){
-                CMainMenu MM = new CMainMenu();
                 GData.setVisible(false);
                 GData.dispose();
+                CMainMenu MM = new CMainMenu();
             }
         }catch(Exception ex){
             ex.printStackTrace();

@@ -23,13 +23,14 @@ public class CInputDataPengeluaran implements ActionListener {
         private InputDataPengeluaran IDP = new InputDataPengeluaran();
         private Database DB = new Database();
         private Pengeluaran P;
-        public static long iDPemasukan = 1451728391;
+        public long IDPengeluaran = DB.getIdPengeluaran();
         private ArrayList<Civitas> civitas = new ArrayList<>();
     
     public CInputDataPengeluaran(){
         IDP.setLocationRelativeTo(null);
         IDP.setVisible(true);
         IDP.setActionListener(this);
+        civitas=DB.getAllCivitas();
         for (int i = 0; i < civitas.size(); i++) {
             IDP.setIDKaryawanBox(civitas.get(i).getKodeCivitas());
         }
@@ -39,15 +40,14 @@ public class CInputDataPengeluaran implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         try{
             if(e.getSource().equals(IDP.getBatalButton())){
-                CMainMenu MM = new CMainMenu();
                 IDP.setVisible(false);
                 IDP.dispose();
+                CMainMenu MM = new CMainMenu();
             }else if (e.getSource().equals(IDP.getSimpanButton())){
-                P= new Pengeluaran(String.valueOf(iDPemasukan+1)
-                        , IDP.getTanggalField()
-                        , DB.getCivitas(IDP.getIDCivitasField()).getNominal()
-                        , IDP.getJenisField()
-                        , DB.getCivitas(IDP.getIDCivitasField()));
+                IDPengeluaran++;
+                P= new Pengeluaran(String.valueOf(IDPengeluaran)
+                        , new java.sql.Date(IDP.getTanggalField().getTime())
+                        , IDP.getJumlahField(),IDP.getJenisField(),DB.getCivitas(IDP.getIDCivitasField()));
                 DB.LaporanPengeluaran(P);
                 IDP.showMessage("Data Telah Tersimpan");
                 CMainMenu MM = new CMainMenu();

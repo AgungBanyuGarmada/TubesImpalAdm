@@ -32,9 +32,9 @@ public class CLogin implements ActionListener{
     public void LoginButtonPerformed(ActionEvent e){
         if(login.getUsernameField().equals(id) && login.getPasswordField().equals(pw))
         {
-            CMainMenu MM = new CMainMenu();
             login.setVisible(false);
             login.dispose();
+            CMainMenu MM = new CMainMenu();
         }
         else
             login.showMessage("Username atau Password anda Salah ");

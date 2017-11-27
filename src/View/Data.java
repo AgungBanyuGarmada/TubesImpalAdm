@@ -37,24 +37,23 @@ public class Data extends javax.swing.JFrame {
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        PemasukanUrutkanBox = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         PemasukanTable = new javax.swing.JTable();
         PemasukanKembaliButton = new javax.swing.JButton();
         OKPemasukanButton = new javax.swing.JButton();
+        PemasukanCariBox = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         PengeluaranKembaliButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         PengeluaranTable = new javax.swing.JTable();
-        PengeluaranUrutkanBox = new javax.swing.JComboBox<>();
+        PengeluaranCariBox = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         OKPengeluaranButton = new javax.swing.JButton();
+        JenisField1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Urut Berdasarkan");
-
-        PemasukanUrutkanBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose", "Item 2", "Item 3", "Item 4" }));
+        jLabel1.setText("Laporan Berdasarkan");
 
         PemasukanTable.setAutoCreateRowSorter(true);
         PemasukanTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -83,6 +82,8 @@ public class Data extends javax.swing.JFrame {
 
         OKPemasukanButton.setText("OK");
 
+        PemasukanCariBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "SPP", "Yayasan", "Telkom" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -93,15 +94,16 @@ public class Data extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 647, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(PemasukanUrutkanBox, 0, 449, Short.MAX_VALUE)
+                        .addComponent(PemasukanCariBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(OKPemasukanButton))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1)))
+                        .addComponent(OKPemasukanButton)
+                        .addGap(5, 5, 5)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -110,8 +112,8 @@ public class Data extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(PemasukanUrutkanBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(OKPemasukanButton))
+                    .addComponent(OKPemasukanButton)
+                    .addComponent(PemasukanCariBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(53, 53, 53)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
@@ -137,11 +139,13 @@ public class Data extends javax.swing.JFrame {
         PengeluaranTable.setEnabled(false);
         jScrollPane2.setViewportView(PengeluaranTable);
 
-        PengeluaranUrutkanBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose", "Item 2", "Item 3", "Item 4" }));
+        PengeluaranCariBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Gaji", "Infrastruktur", "Beasiswa", "Logistik" }));
 
         jLabel2.setText("Cari Berdasarkan");
 
         OKPengeluaranButton.setText("OK");
+
+        JenisField1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gaji", "Infrastruktur", "Beasiswa", "Logistik" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -156,13 +160,18 @@ public class Data extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(PengeluaranUrutkanBox, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PengeluaranCariBox, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                         .addComponent(OKPengeluaranButton))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane2)))
                 .addContainerGap())
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(JenisField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,12 +179,17 @@ public class Data extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(PengeluaranUrutkanBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PengeluaranCariBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(OKPengeluaranButton))
                 .addGap(51, 51, 51)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(PengeluaranKembaliButton))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(JenisField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         jTabbedPane2.addTab("Pengeluaran", jPanel2);
@@ -205,14 +219,15 @@ public class Data extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> JenisField1;
     private javax.swing.JButton OKPemasukanButton;
     private javax.swing.JButton OKPengeluaranButton;
+    private javax.swing.JComboBox<String> PemasukanCariBox;
     private javax.swing.JButton PemasukanKembaliButton;
     private javax.swing.JTable PemasukanTable;
-    private javax.swing.JComboBox<String> PemasukanUrutkanBox;
+    private javax.swing.JComboBox<String> PengeluaranCariBox;
     private javax.swing.JButton PengeluaranKembaliButton;
     private javax.swing.JTable PengeluaranTable;
-    private javax.swing.JComboBox<String> PengeluaranUrutkanBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -240,16 +255,12 @@ public class Data extends javax.swing.JFrame {
         return PemasukanKembaliButton;
     }
 
-    public String getPemasukanUrutkanBox() {
-        return PemasukanUrutkanBox.getSelectedItem().toString();
-    }
-
     public JButton getPengeluaranKembaliButton() {
         return PengeluaranKembaliButton;
     }
 
     public String getPengeluaranUrutkanBox() {
-        return PengeluaranUrutkanBox.getSelectedItem().toString();
+        return PengeluaranCariBox.getSelectedItem().toString();
     }
 
     public void setPemasukanTable(Object[][] a,Object[] b ) {
@@ -267,4 +278,13 @@ public class Data extends javax.swing.JFrame {
         }
         });
     }
+
+    public String getPemasukanCariBox() {
+        return PemasukanCariBox.getItemAt(PemasukanCariBox.getSelectedIndex());
+    }
+
+    public String getPengeluaranCariBox() {
+        return PengeluaranCariBox.getItemAt(PengeluaranCariBox.getSelectedIndex());
+    }
+    
 }

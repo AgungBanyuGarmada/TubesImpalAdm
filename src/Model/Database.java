@@ -106,6 +106,26 @@ public class Database {
         }
     }
     
+    public ArrayList<Pemasukan> getListPemasukan(String jenis)  {
+        try {
+            ArrayList<Pemasukan> listPemasukan  = new ArrayList<>();
+            buatKoneksi();
+            String q = "select id_Pemasukan, Tanggal, Jenis, Saldo, Kode_Bank from Pemasukan where Jenis = '"+jenis+"'";
+            ResultSet rs2 = stmt.executeQuery(q);
+            while(rs2.next()){
+                Pemasukan p = new Pemasukan(rs2.getString("id_Pemasukan"),rs2.getDate("Tanggal"),
+                        rs2.getString("Jenis"),rs2.getDouble("Saldo"),getBank(rs2.getString("Kode_Bank")));
+                listPemasukan.add(p);
+            }
+            c.close();
+            return listPemasukan;
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+    
     public ArrayList<Pengeluaran> getListPengeluaran()  {
         try {
             ArrayList<Pengeluaran> listPengeluaran  = new ArrayList<>();
@@ -132,6 +152,27 @@ public class Database {
             ArrayList<Pengeluaran> listPengeluaran  = new ArrayList<>();
             buatKoneksi();
             String q = "select id_Pengeluaran, Tanggal, Jenis, Saldo, Kode_Civitas from Pengeluaran where Tanggal = '"+d+"'";
+            stmt = c.createStatement();
+            ResultSet rs2 = stmt.executeQuery(q);
+            while(rs2.next()){
+                Pengeluaran p = new Pengeluaran(rs2.getString("id_Pengeluaran"),rs2.getDate("Tanggal"),rs2.
+                        getDouble("Saldo"),rs2.getString("Jenis"),getCivitas(rs2.getString("Kode_civitas")));
+                listPengeluaran.add(p);
+            }
+            c.close();
+            return listPengeluaran;
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+    
+    public ArrayList<Pengeluaran> getListPengeluaran(String jenis)  {
+        try {
+            ArrayList<Pengeluaran> listPengeluaran  = new ArrayList<>();
+            buatKoneksi();
+            String q = "select id_Pengeluaran, Tanggal, Jenis, Saldo, Kode_Civitas from Pengeluaran where Jenis = '"+jenis+"'";
             stmt = c.createStatement();
             ResultSet rs2 = stmt.executeQuery(q);
             while(rs2.next()){

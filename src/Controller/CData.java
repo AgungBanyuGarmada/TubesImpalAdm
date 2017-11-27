@@ -68,8 +68,8 @@ public class CData implements ActionListener {
             GData.dispose();
             CMainMenu MM = new CMainMenu();
         }
-        else if (e.getSource().equals(GData.getPemasukanKembaliButton())){
-            pemasukan=D.getListPemasukan(GData.getPemasukanCariBox());       
+        else if (e.getSource().equals(GData.getOKPemasukanButton())&& (GData.getPemasukanCariBox().equals("None"))==false){
+            pemasukan=D.getListPemasukans(GData.getPemasukanCariBox());       
 
             String c[]= {"No Laporan","Jenis Laporan","Nominal","Tanggal","Kode Bank"};
             String data[][] = new String[pemasukan.size()][c.length];
@@ -85,8 +85,8 @@ public class CData implements ActionListener {
 
             GData.setPemasukanTable(data, c);
         }
-        else if (e.getSource().equals(GData.getOKPengeluaranButton())){
-            pengeluaran=D.getListPengeluaran(GData.getPengeluaranCariBox()); 
+        else if (e.getSource().equals(GData.getOKPengeluaranButton()) && (GData.getPengeluaranCariBox().equals("None"))==false){
+            pengeluaran=D.getListPengeluarans(GData.getPengeluaranCariBox()); 
             String c1[]= {"No Laporan","Jenis Laporan","Nominal","Tanggal","Kode Civitas"};
             String data1[][] = new String[pengeluaran.size()][c1.length];
             int i = 0;
@@ -100,6 +100,38 @@ public class CData implements ActionListener {
             }
 
             GData.setPengeluaranTable(data1, c1);
+        }
+        else if (e.getSource().equals(GData.getOKPemasukanButton())&&(GData.getPemasukanCariBox().equals("None"))){
+            pemasukan=D.getListPemasukan();
+            String c[]= {"No Laporan","Jenis Laporan","Nominal","Tanggal","Kode Bank"};
+            String data[][] = new String[pemasukan.size()][c.length];
+            int i = 0;
+            for(Pemasukan P: pemasukan){
+                data[i][0] = P.getIdKeuangan();
+                data[i][1] = P.getJenis();
+                data[i][2] = String.valueOf(P.getNominal());
+                data[i][3] = P.getTanggal().toString();
+                data[i][4] = P.getPemasukan().getKodeBank();
+                i++;
             }
+
+            GData.setPemasukanTable(data, c);
+        }
+        else if (e.getSource().equals(GData.getOKPengeluaranButton())&&(GData.getPengeluaranCariBox().equals("None"))){
+            pengeluaran=D.getListPengeluaran(); 
+            String c1[]= {"No Laporan","Jenis Laporan","Nominal","Tanggal","Kode Civitas"};
+            String data1[][] = new String[pengeluaran.size()][c1.length];
+            int i = 0;
+            for(Pengeluaran P: pengeluaran){
+                data1[i][0] = P.getIdKeuangan();
+                data1[i][1] = P.getJenis();
+                data1[i][2] = String.valueOf(P.getNominal());
+                data1[i][3] = P.getTanggal().toString();
+                data1[i][4] = P.getPengeluaran().getKodeCivitas();
+                i++;
+            }
+
+            GData.setPengeluaranTable(data1, c1);
+        }
     }
 }

@@ -106,7 +106,7 @@ public class Database {
         }
     }
     
-    public ArrayList<Pemasukan> getListPemasukan(String jenis)  {
+    public ArrayList<Pemasukan> getListPemasukans(String jenis)  {
         try {
             ArrayList<Pemasukan> listPemasukan  = new ArrayList<>();
             buatKoneksi();
@@ -168,7 +168,7 @@ public class Database {
         }
     }
     
-    public ArrayList<Pengeluaran> getListPengeluaran(String jenis)  {
+    public ArrayList<Pengeluaran> getListPengeluarans(String jenis)  {
         try {
             ArrayList<Pengeluaran> listPengeluaran  = new ArrayList<>();
             buatKoneksi();

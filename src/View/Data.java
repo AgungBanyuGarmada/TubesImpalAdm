@@ -259,10 +259,6 @@ public class Data extends javax.swing.JFrame {
         return PengeluaranKembaliButton;
     }
 
-    public String getPengeluaranUrutkanBox() {
-        return PengeluaranCariBox.getSelectedItem().toString();
-    }
-
     public void setPemasukanTable(Object[][] a,Object[] b ) {
         this.PemasukanTable.setModel(new DefaultTableModel(a, b){
         public boolean isCellEditable(int row,int column){

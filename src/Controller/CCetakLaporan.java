@@ -64,7 +64,7 @@ public class CCetakLaporan implements ActionListener {
                 }
                 exportToExcel(c,data,i,4,"Pemasukan");
             }
-            else{
+            else if(CL.getJenisBox().equals("Pengeluaran")){
                 pengeluaran = DB.getListLaporanPengeluaran(new java.sql.Date(CL.getTanggalField().getTime()));
                 
                 String c1[]= {"No Laporan","Jenis Laporan","Nominal","Tanggal","Kode Civitas"};
@@ -80,7 +80,44 @@ public class CCetakLaporan implements ActionListener {
                 }
                 exportToExcel(c1,data1,i,4,"Pengeluaran");
             }
-            try {
+            
+        }
+        else if (e.getSource().equals(CL.getCetakSeluruhLaporanButton())){
+            if(CL.getJenisBox().equals("Pemasukan")){
+                pemasukan = DB.getListPemasukan();
+                System.out.println("a");
+                String c[]= {"No Laporan","Jenis Laporan","Nominal","Tanggal","Kode Bank"};
+                String data[][] = new String[pemasukan.size()][c.length];
+                int i = 0;
+                for(Pemasukan P: pemasukan){
+                    data[i][0] = P.getIdKeuangan().toString();
+                    data[i][1] = P.getJenis();
+                    data[i][2] = String.valueOf(P.getNominal()).toString();
+                    data[i][3] = P.getTanggal().toString().toString();
+                    data[i][4] = P.getPemasukan().getKodeBank().toString();
+                    i++;
+                }
+                exportToExcel(c,data,i,4,"Pemasukan");
+            }
+            else if(CL.getJenisBox().equals("Pengeluaran")){
+                pengeluaran = DB.getListPengeluaran();
+                
+                String c1[]= {"No Laporan","Jenis Laporan","Nominal","Tanggal","Kode Civitas"};
+                String data1[][] = new String[pengeluaran.size()][c1.length];
+                int i = 0;
+                for(Pengeluaran P: pengeluaran){
+                    data1[i][0] = P.getIdKeuangan();
+                    data1[i][1] = P.getJenis();
+                    data1[i][2] = String.valueOf(P.getNominal());
+                    data1[i][3] = P.getTanggal().toString();
+                    data1[i][4] = P.getPengeluaran().getKodeCivitas();
+                    i++;
+                }
+                exportToExcel(c1,data1,i,4,"Pengeluaran");
+            }
+            
+        }
+        try {
                 Runtime.getRuntime().exec("cmd /c start D:\\Laporan.xls");
             } catch (IOException ex) {
                 Logger.getLogger(CCetakLaporan.class.getName()).log(Level.SEVERE, null, ex);
@@ -88,8 +125,9 @@ public class CCetakLaporan implements ActionListener {
             CL.setVisible(false);
             CL.dispose();
             CMainMenu mm=new CMainMenu();
-        }
-    }
+}
+    
+    
     
     private void exportToExcel(String[] head,String[][] data,int index,int index2,String l) {
         WritableWorkbook myFirstWbook = null;
@@ -133,6 +171,6 @@ public class CCetakLaporan implements ActionListener {
         }
 
     }
-    }
+}
 
 

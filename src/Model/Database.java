@@ -90,11 +90,11 @@ public class Database {
         try {
             ArrayList<Pemasukan> listPemasukan  = new ArrayList<>();
             buatKoneksi();
-            String q = "select id_Pemasukan, Tanggal, Jenis, Saldo, Kode_Bank from Pemasukan where Tanggal = "+d;
-            rs = stmt.executeQuery(q);
-            while(rs.next()){
-                Pemasukan p = new Pemasukan(rs.getString("id_Pemasukan"),rs.getDate("Tanggal"),
-                        rs.getString("Jenis"),rs.getDouble("Saldo"),getBank(rs.getString("Kode_Bank")));
+            String q = "select id_Pemasukan, Tanggal, Jenis, Saldo, Kode_Bank from Pemasukan where Tanggal = '"+d+"'";
+            ResultSet rs2 = stmt.executeQuery(q);
+            while(rs2.next()){
+                Pemasukan p = new Pemasukan(rs2.getString("id_Pemasukan"),rs2.getDate("Tanggal"),
+                        rs2.getString("Jenis"),rs2.getDouble("Saldo"),getBank(rs2.getString("Kode_Bank")));
                 listPemasukan.add(p);
             }
             c.close();
@@ -131,12 +131,12 @@ public class Database {
         try {
             ArrayList<Pengeluaran> listPengeluaran  = new ArrayList<>();
             buatKoneksi();
-            String q = "select id_Pengeluaran, Tanggal, Jenis, Saldo, Kode_Civitas from Pengeluaran where Tanggal = "+d;
+            String q = "select id_Pengeluaran, Tanggal, Jenis, Saldo, Kode_Civitas from Pengeluaran where Tanggal = '"+d+"'";
             stmt = c.createStatement();
-            rs = stmt.executeQuery(q);
-            while(rs.next()){
-                Pengeluaran p = new Pengeluaran(rs.getString("id_Pengeluaran"),rs.getDate("Tanggal"),rs.
-                        getDouble("Saldo"),rs.getString("Jenis"),getCivitas(rs.getString("Kode_civitas")));
+            ResultSet rs2 = stmt.executeQuery(q);
+            while(rs2.next()){
+                Pengeluaran p = new Pengeluaran(rs2.getString("id_Pengeluaran"),rs2.getDate("Tanggal"),rs2.
+                        getDouble("Saldo"),rs2.getString("Jenis"),getCivitas(rs2.getString("Kode_civitas")));
                 listPengeluaran.add(p);
             }
             c.close();

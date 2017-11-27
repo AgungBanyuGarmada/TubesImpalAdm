@@ -6,7 +6,7 @@
 package View;
 
 import java.awt.event.ActionListener;
-import java.sql.Date;
+import java.util.Date;
 import javax.swing.JButton;
 
 /**
@@ -132,7 +132,7 @@ public class CetakLaporan extends javax.swing.JFrame {
     }
 
     public Date getTanggalField() {
-        return (Date) TanggalField.getDate();
+        return TanggalField.getDate();
     }
 
     public void setActionListener(ActionListener a){

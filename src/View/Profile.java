@@ -54,7 +54,7 @@ public class Profile extends javax.swing.JFrame {
 
         jLabel3.setText("Password Baru");
 
-        jLabel4.setText("Ulang Password Baru");
+        jLabel4.setText("Masukan Password Baru");
 
         BtnUbah.setText("Ubah");
 
@@ -84,14 +84,14 @@ public class Profile extends javax.swing.JFrame {
                         .addGap(138, 138, 138)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(FPL, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                            .addComponent(FPL, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
                             .addComponent(FPB1, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(FPB2)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -138,18 +138,22 @@ public class Profile extends javax.swing.JFrame {
     private void FPB2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FPB2KeyReleased
         if(getFPB1().equals(getFPB2())){
             LbStatus.setText("Password Sama");
+            LbStatus.setForeground(Color.green);
         }
         else{
             LbStatus.setText("Password Berbeda");
+            LbStatus.setForeground(Color.red);
         }
     }//GEN-LAST:event_FPB2KeyReleased
 
     private void FPB1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FPB1KeyReleased
         if(getFPB1().equals(getFPB2())){
             LbStatus.setText("Password Sama");
+            LbStatus.setForeground(Color.green);
         }
         else{
             LbStatus.setText("Password Berbeda");
+            LbStatus.setForeground(Color.red);
         }
     }//GEN-LAST:event_FPB1KeyReleased
 

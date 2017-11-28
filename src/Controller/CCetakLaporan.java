@@ -93,7 +93,6 @@ public class CCetakLaporan implements ActionListener {
         else if (e.getSource().equals(CL.getCetakSeluruhLaporanButton())){
             if(CL.getJenisBox().equals("Pemasukan")){
                 pemasukan = DB.getListPemasukan();
-                System.out.println("a");
                 String c[]= {"No Laporan","Jenis Laporan","Nominal","Tanggal","Kode Bank"};
                 String data[][] = new String[pemasukan.size()][c.length];
                 int i = 0;

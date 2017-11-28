@@ -17,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author banyu
  */
-public class CInputDataPengeluaranIT {
+public class CDataIT {
     
-    public CInputDataPengeluaranIT() {
+    public CDataIT() {
     }
     
     @BeforeClass
@@ -39,13 +39,13 @@ public class CInputDataPengeluaranIT {
     }
 
     /**
-     * Test of actionPerformed method, of class CInputDataPengeluaran.
+     * Test of actionPerformed method, of class CData.
      */
     @Test
     public void testActionPerformed() {
         System.out.println("actionPerformed");
         ActionEvent e = null;
-        CInputDataPengeluaran instance = new CInputDataPengeluaran();
+        CData instance = new CData();
         instance.actionPerformed(e);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

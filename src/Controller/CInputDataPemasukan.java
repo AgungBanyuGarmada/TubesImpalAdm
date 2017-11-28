@@ -30,6 +30,7 @@ public class CInputDataPemasukan implements ActionListener{
         IDP.setLocationRelativeTo(null);
         IDP.setVisible(true);
         IDP.setActionListener(this);
+        IDP.setJumlahField("0");
         bank=DB.getAllBank();
         for (int i = 0; i < bank.size(); i++) {
             IDP.setIDBankBox(bank.get(i).getKodeBank());
@@ -43,7 +44,7 @@ public class CInputDataPemasukan implements ActionListener{
                 IDP.setVisible(false);
                 IDP.dispose();
                 CMainMenu MM = new CMainMenu();
-            }else if (e.getSource().equals(IDP.getSimpanButton())){
+            }else if (e.getSource().equals(IDP.getSimpanButton())&&IDP.getJumlahField()!=0&&IDP.getTanggalField()!=null){
                 IDPemasukan++;
                 P= new Pemasukan(String.valueOf(IDPemasukan)
                         , new java.sql.Date(IDP.getTanggalField().getTime())

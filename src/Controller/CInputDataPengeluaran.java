@@ -43,7 +43,7 @@ public class CInputDataPengeluaran implements ActionListener {
                 IDP.setVisible(false);
                 IDP.dispose();
                 CMainMenu MM = new CMainMenu();
-            }else if (e.getSource().equals(IDP.getSimpanButton())){
+            }else if (e.getSource().equals(IDP.getSimpanButton())&&IDP.getJumlahField()!=0&&IDP.getTanggalField()!=null){
                 IDPengeluaran++;
                 P= new Pengeluaran(String.valueOf(IDPengeluaran)
                         , new java.sql.Date(IDP.getTanggalField().getTime())
@@ -53,6 +53,9 @@ public class CInputDataPengeluaran implements ActionListener {
                 CMainMenu MM = new CMainMenu();
                 IDP.setVisible(false);
                 IDP.dispose();
+            }
+            else if (IDP.getTanggalField()==null){
+                IDP.showMessage("Data Belum Terisi Dengan Lengkap");
             }
         }catch(Exception ex){
             ex.printStackTrace();

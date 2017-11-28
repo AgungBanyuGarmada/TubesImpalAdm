@@ -209,6 +209,7 @@ public class InputDataPengeluaran extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
 
+    
     public void setIDKaryawanBox(String x){
         IDCivitasBox.addItem(x);
     }

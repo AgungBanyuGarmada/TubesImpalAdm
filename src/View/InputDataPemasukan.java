@@ -127,6 +127,11 @@ public class InputDataPemasukan extends javax.swing.JFrame {
     public void showMessage(String m) {
         JOptionPane.showMessageDialog(this, m);
     }
+
+    public void setJumlahField(String JumlahField) {
+        this.JumlahField.setText(JumlahField);
+    }
+    
     
     public JButton getBatalButton() {
         return BatalButton;
@@ -141,6 +146,9 @@ public class InputDataPemasukan extends javax.swing.JFrame {
     }
 
     public Double getJumlahField() {
+        if (Double.parseDouble(JumlahField.getText())==0) {
+            showMessage("Data Belum Terisi Lengkap");
+        }
         return Double.parseDouble(JumlahField.getText());
     }
 
@@ -149,6 +157,8 @@ public class InputDataPemasukan extends javax.swing.JFrame {
     }
 
     public Date getTanggalField() {
+        if (TanggalField.getDate()==null)
+            showMessage("Data Belum Terisi Lengkap");
         return TanggalField.getDate();
     }
 

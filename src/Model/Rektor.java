@@ -16,14 +16,12 @@ import java.util.List;
 public class Rektor {
     private String nip;
     private String nama;
-    private List<Pemasukan> pemasukan;
-    private List<Pengeluaran> pengeluaran;
+    private String password;
 
-    public Rektor(String nip, String nama, List<Pemasukan> pemasukan, List<Pengeluaran> pengeluaran) {
+    public Rektor(String nip, String nama, String password) {
         this.nip = nip;
         this.nama = nama;
-        this.pemasukan = pemasukan;
-        this.pengeluaran = pengeluaran;
+        this.password = password;
     }
 
     public String getNip() {
@@ -34,12 +32,7 @@ public class Rektor {
         return nama;
     }
 
-    public List<Pemasukan> getPemasukan() {
-        return pemasukan;
+    public String getPassword() {
+        return password;
     }
-
-    public List<Pengeluaran> getPengeluaran() {
-        return pengeluaran;
-    }
-
 }

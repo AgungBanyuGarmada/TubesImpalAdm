@@ -302,4 +302,35 @@ public class Database {
         }
         return id;
     }
+    public Rektor getRektor(){
+        try {
+            Rektor r=null;
+            buatKoneksi();
+            String q = "select NIP, Nama, Password from rektor";
+            stmt = c.createStatement();
+            rs = stmt.executeQuery(q);
+            while(rs.next())
+                r = new Rektor(rs.getString("NIP"),rs.getString("nama"),rs.getString("Password"));
+            c.close();
+            
+            return r;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+    
+    public void UpdateRektorPassword(String nip,String pass){
+        try {
+            Rektor r=null;
+            buatKoneksi();
+            String q = "UPDATE REKTOR set Password ='"+pass+"' where NIP='"+nip+"'";
+            stmt.execute(q, Statement.RETURN_GENERATED_KEYS);
+            rs = stmt.getGeneratedKeys();
+            c.close();
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
 }

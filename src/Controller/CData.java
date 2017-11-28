@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public class CData implements ActionListener {
     private Data GData = new Data();
     private Database D = new Database();
+    private Rektor r=D.getRektor();
     private ArrayList<Pemasukan> pemasukan= new ArrayList<>();
     private ArrayList<Pengeluaran> pengeluaran= new ArrayList<>();
 
@@ -66,7 +67,12 @@ public class CData implements ActionListener {
         if(e.getSource().equals(GData.getPemasukanKembaliButton())||e.getSource().equals(GData.getPengeluaranKembaliButton())){
             GData.setVisible(false);
             GData.dispose();
-            CMainMenu MM = new CMainMenu();
+            if (CLogin.SR==true){
+                CMMR mm= new CMMR(r.getNama());
+            }
+            else{ 
+                CMainMenu MM = new CMainMenu();
+            }
         }
         else if (e.getSource().equals(GData.getOKPemasukanButton())&& (GData.getPemasukanCariBox().equals("None"))==false){
             pemasukan=D.getListPemasukans(GData.getPemasukanCariBox());       

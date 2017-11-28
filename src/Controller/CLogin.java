@@ -5,6 +5,8 @@
  */
 package Controller;
 
+import Model.Database;
+import Model.Rektor;
 import View.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,8 +19,11 @@ import java.util.logging.Logger;
  */
 public class CLogin implements ActionListener{
     private Login login;
-    public String id="adm05";
-    public String pw="adm05";
+    private String id="adm05";
+    private String pw="adm05";
+    private Database DB = new Database();
+    private Rektor r = DB.getRektor();
+    public static boolean SR =false;
     
     public CLogin() {
         login = new Login();
@@ -35,6 +40,13 @@ public class CLogin implements ActionListener{
             login.setVisible(false);
             login.dispose();
             CMainMenu MM = new CMainMenu();
+            SR=false;
+        }
+        else if (login.getUsernameField().equals(r.getNip()) && login.getPasswordField().equals(r.getPassword())){
+            SR=true;
+            login.setVisible(false);
+            login.dispose();
+            CMMR mm= new CMMR(r.getNama());
         }
         else
             login.showMessage("Username atau Password anda Salah ");

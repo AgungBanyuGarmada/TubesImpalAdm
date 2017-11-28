@@ -47,7 +47,7 @@ public class CCetakLaporan implements ActionListener {
             CL.dispose();
             CMainMenu mm = new CMainMenu();
         }
-        else if (e.getSource().equals(CL.getCetakButton())){
+        else if (e.getSource().equals(CL.getCetakButton())&&CL.getTanggalField()!=null){
             if(CL.getJenisBox().equals("Pemasukan")){
                 pemasukan = DB.getListLaporanPemasukan(new java.sql.Date(CL.getTanggalField().getTime()));
                 

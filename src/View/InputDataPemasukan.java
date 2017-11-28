@@ -7,6 +7,7 @@ package View;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.util.Date;
 
 import javax.swing.JButton;
@@ -73,6 +74,12 @@ public class InputDataPemasukan extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel5.setText("Jumlah");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 244, -1, -1));
+
+        JumlahField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                JumlahFieldKeyTyped(evt);
+            }
+        });
         getContentPane().add(JumlahField, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 241, 508, -1));
 
         BatalButton.setText("Batal");
@@ -102,6 +109,17 @@ public class InputDataPemasukan extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void JumlahFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JumlahFieldKeyTyped
+        char c = evt.getKeyChar();
+        if (!((c >= '0') && (c <= '9')
+        || (c == KeyEvent.VK_BACK_SPACE)
+        || (c == KeyEvent.VK_DELETE))) {
+        getToolkit().beep();
+        evt.consume();
+        }
+
+    }//GEN-LAST:event_JumlahFieldKeyTyped
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

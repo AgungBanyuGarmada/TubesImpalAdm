@@ -70,7 +70,7 @@ public class Database {
         try {
             ArrayList<Pemasukan> listPemasukan  = new ArrayList<>();
             buatKoneksi();
-            String q = "select id_Pemasukan, Tanggal, Jenis, Saldo, Kode_Bank from Pemasukan";
+            String q = "select id_Pemasukan, Tanggal, Jenis, Saldo, Kode_Bank from Pemasukan order by id_Pemasukan";
             ResultSet rs2 = stmt.executeQuery(q);
             while(rs2.next()){
                 Pemasukan p = new Pemasukan(rs2.getString("id_Pemasukan"),rs2.getDate("Tanggal"),

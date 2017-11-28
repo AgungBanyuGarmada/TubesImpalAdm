@@ -8,6 +8,7 @@ package View;
 import java.awt.event.ActionListener;
 import java.util.Date;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -155,6 +156,8 @@ public class CetakLaporan extends javax.swing.JFrame {
     }
 
     public Date getTanggalField() {
+        if (TanggalField.getDate()==null)
+            JOptionPane.showMessageDialog(this, "Masukan Tanggal");
         return TanggalField.getDate();
     }
 

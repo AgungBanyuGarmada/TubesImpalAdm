@@ -7,6 +7,7 @@ package View;
 
 import Model.Database;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -89,6 +90,11 @@ public class InputDataPengeluaran extends javax.swing.JFrame {
         jLabel3.setText("Jenis Pengeluaran");
 
         JenisField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gaji", "Infrastruktur", "Beasiswa", "Logistik" }));
+        JenisField.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                JenisFieldItemStateChanged(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel4.setText("ID Civitas");
@@ -97,6 +103,11 @@ public class InputDataPengeluaran extends javax.swing.JFrame {
         jLabel5.setText("Jumlah");
 
         JumlahField.setEditable(false);
+        JumlahField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                JumlahFieldKeyTyped(evt);
+            }
+        });
 
         IDCivitasBox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -187,6 +198,30 @@ public class InputDataPengeluaran extends javax.swing.JFrame {
         JumlahField.setText(String.valueOf(DB.getCivitas(IDCivitasBox.getItemAt(IDCivitasBox.getSelectedIndex())).getNominal()));
     }//GEN-LAST:event_IDCivitasBoxItemStateChanged
 
+    private void JenisFieldItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JenisFieldItemStateChanged
+        if(JenisField.getItemAt(JenisField.getSelectedIndex())=="Infrastruktur"||
+                JenisField.getItemAt(JenisField.getSelectedIndex())=="Logistik" ||
+                JenisField.getItemAt(JenisField.getSelectedIndex())=="Beasiswa"){
+            IDCivitasBox.setEnabled(false);
+            JumlahField.setEditable(true);
+            JumlahField.setText("0");
+        }
+        else if(JenisField.getItemAt(JenisField.getSelectedIndex())=="Gaji"){
+            JumlahField.setEditable(false);
+            IDCivitasBox.setEnabled(true);
+        }
+    }//GEN-LAST:event_JenisFieldItemStateChanged
+
+    private void JumlahFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JumlahFieldKeyTyped
+        char c = evt.getKeyChar();
+        if (!((c >= '0') && (c <= '9')
+        || (c == KeyEvent.VK_BACK_SPACE)
+        || (c == KeyEvent.VK_DELETE))) {
+        getToolkit().beep();
+        evt.consume();
+        }
+    }//GEN-LAST:event_JumlahFieldKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -223,7 +258,12 @@ public class InputDataPengeluaran extends javax.swing.JFrame {
     }
 
     public String getIDCivitasField() {
-        return IDCivitasBox.getItemAt(IDCivitasBox.getSelectedIndex());
+        if (JenisField.getItemAt(JenisField.getSelectedIndex())=="Infrastruktur"||
+                JenisField.getItemAt(JenisField.getSelectedIndex())=="Logistik" ||
+                JenisField.getItemAt(JenisField.getSelectedIndex())=="Beasiswa")
+            return "-";
+        else
+            return IDCivitasBox.getItemAt(IDCivitasBox.getSelectedIndex());
     }
 
     public String getJenisField() {

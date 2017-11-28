@@ -54,7 +54,7 @@ public class CInputDataPengeluaran implements ActionListener {
                 IDP.setVisible(false);
                 IDP.dispose();
             }
-            else if (IDP.getTanggalField()==null){
+            else if (IDP.getTanggalField()==null||IDP.getJumlahField()==0){
                 IDP.showMessage("Data Belum Terisi Dengan Lengkap");
             }
         }catch(Exception ex){

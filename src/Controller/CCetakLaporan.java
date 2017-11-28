@@ -80,7 +80,15 @@ public class CCetakLaporan implements ActionListener {
                 }
                 exportToExcel(c1,data1,i,4,"Pengeluaran");
             }
-            
+            try {
+                Runtime.getRuntime().exec("cmd /c start D:\\Laporan.xls");
+            } catch (IOException ex) {
+                Logger.getLogger(CCetakLaporan.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            CL.setVisible(false);
+            CL.dispose();
+            CMainMenu mm=new CMainMenu();
+
         }
         else if (e.getSource().equals(CL.getCetakSeluruhLaporanButton())){
             if(CL.getJenisBox().equals("Pemasukan")){
@@ -115,9 +123,7 @@ public class CCetakLaporan implements ActionListener {
                 }
                 exportToExcel(c1,data1,i,4,"Pengeluaran");
             }
-            
-        }
-        try {
+            try {
                 Runtime.getRuntime().exec("cmd /c start D:\\Laporan.xls");
             } catch (IOException ex) {
                 Logger.getLogger(CCetakLaporan.class.getName()).log(Level.SEVERE, null, ex);
@@ -125,6 +131,8 @@ public class CCetakLaporan implements ActionListener {
             CL.setVisible(false);
             CL.dispose();
             CMainMenu mm=new CMainMenu();
+        }
+        
 }
     
     

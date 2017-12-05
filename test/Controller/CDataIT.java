@@ -12,6 +12,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import View.*;
 
 /**
  *
@@ -42,13 +43,18 @@ public class CDataIT {
      * Test of actionPerformed method, of class CData.
      */
     @Test
-    public void testActionPerformed() {
+    public void testActionPerformed() throws InterruptedException {
         System.out.println("actionPerformed");
-        ActionEvent e = null;
+        Data d=new Data();
+        boolean status = false;
+//        ActionEvent e = null;
         CData instance = new CData();
-        instance.actionPerformed(e);
+//        e.equals(d.getPemasukanKembaliButton());
+        boolean exR =false;
+        boolean result = instance.actionPerformed(status);
+        assertEquals(exR , result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }

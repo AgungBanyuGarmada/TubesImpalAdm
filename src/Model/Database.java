@@ -27,13 +27,8 @@ public class Database {
     
      public void buatKoneksi() {
         try {
-            //try {
-                //Class.forName("com.mysql.jdbc.Driver");
-                c = DriverManager.getConnection("jdbc:mysql://localhost:3306/KeuanganTelkom", "root", "");
-                stmt=c.createStatement();
-            //} catch (ClassNotFoundException ex) {
-            //    Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
-            //}
+            c = DriverManager.getConnection("jdbc:mysql://localhost:3306/KeuanganTelkom", "root", "");
+            stmt=c.createStatement();
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -43,9 +43,10 @@ public class CCetakLaporan implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(CL.getKembaliButton())){
+            CMainMenu mm = new CMainMenu();
             CL.setVisible(false);
             CL.dispose();
-            CMainMenu mm = new CMainMenu();
+            
         }
         else if (e.getSource().equals(CL.getCetakButton())&&CL.getTanggalField()!=null){
             if(CL.getJenisBox().equals("Pemasukan")){
@@ -136,7 +137,7 @@ public class CCetakLaporan implements ActionListener {
     
     
     
-    private void exportToExcel(String[] head,String[][] data,int index,int index2,String l) {
+    public void exportToExcel(String[] head,String[][] data,int index,int index2,String l) {
         WritableWorkbook myFirstWbook = null;
         try {
 
@@ -178,6 +179,8 @@ public class CCetakLaporan implements ActionListener {
         }
 
     }
+    
+    
 }
 
 

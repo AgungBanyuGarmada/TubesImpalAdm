@@ -38,10 +38,12 @@ public class CetakLaporan extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        TanggalField = new org.jdesktop.swingx.JXDatePicker();
+        Tanggal1Field = new org.jdesktop.swingx.JXDatePicker();
         JenisBox = new javax.swing.JComboBox<>();
         CetakSeluruhLaporanButton = new javax.swing.JButton();
         CetakButton = new javax.swing.JButton();
+        Tanggal2Field = new org.jdesktop.swingx.JXDatePicker();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -67,12 +69,18 @@ public class CetakLaporan extends javax.swing.JFrame {
 
         CetakButton.setText("Cetak");
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel4.setText("s/d");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(CetakSeluruhLaporanButton))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -88,13 +96,14 @@ public class CetakLaporan extends javax.swing.JFrame {
                                             .addGap(65, 65, 65)
                                             .addComponent(JenisBox, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel3)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel3)
+                                                .addComponent(jLabel4))
                                             .addGap(47, 47, 47)
-                                            .addComponent(TanggalField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addGap(0, 221, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(CetakSeluruhLaporanButton)))
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(Tanggal2Field, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(Tanggal1Field, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)))))))
+                        .addGap(0, 221, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -115,10 +124,14 @@ public class CetakLaporan extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addComponent(jLabel3))
-                    .addComponent(TanggalField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(Tanggal1Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Tanggal2Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(20, 20, 20)
                 .addComponent(CetakButton)
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 400));
@@ -135,10 +148,12 @@ public class CetakLaporan extends javax.swing.JFrame {
     private javax.swing.JButton CetakSeluruhLaporanButton;
     private javax.swing.JComboBox<String> JenisBox;
     private javax.swing.JButton KembaliButton;
-    private org.jdesktop.swingx.JXDatePicker TanggalField;
+    private org.jdesktop.swingx.JXDatePicker Tanggal1Field;
+    private org.jdesktop.swingx.JXDatePicker Tanggal2Field;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
@@ -155,10 +170,16 @@ public class CetakLaporan extends javax.swing.JFrame {
         return KembaliButton;
     }
 
-    public Date getTanggalField() {
-        if (TanggalField.getDate()==null)
+    public Date getTanggal1Field() {
+        if (Tanggal1Field.getDate()==null)
             JOptionPane.showMessageDialog(this, "Masukan Tanggal");
-        return TanggalField.getDate();
+        return Tanggal1Field.getDate();
+    }
+    
+    public Date getTanggal2Field() {
+        if (Tanggal2Field.getDate()==null)
+            JOptionPane.showMessageDialog(this, "Masukan Tanggal");
+        return Tanggal2Field.getDate();
     }
 
     public void setActionListener(ActionListener a){

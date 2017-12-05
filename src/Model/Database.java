@@ -81,11 +81,11 @@ public class Database {
         }
     }
     
-    public ArrayList<Pemasukan> getListLaporanPemasukan(Date d)  {
+    public ArrayList<Pemasukan> getListLaporanPemasukan(Date d1,Date d2)  {
         try {
             ArrayList<Pemasukan> listPemasukan  = new ArrayList<>();
             buatKoneksi();
-            String q = "select id_Pemasukan, Tanggal, Jenis, Saldo, Kode_Bank from Pemasukan where Tanggal = '"+d+"'";
+            String q = "select id_Pemasukan, Tanggal, Jenis, Saldo, Kode_Bank from Pemasukan where (Tanggal BETWEEN '"+d1+"' AND '"+d2+"')";
             ResultSet rs2 = stmt.executeQuery(q);
             while(rs2.next()){
                 Pemasukan p = new Pemasukan(rs2.getString("id_Pemasukan"),rs2.getDate("Tanggal"),
@@ -142,11 +142,11 @@ public class Database {
         }
     }
     
-    public ArrayList<Pengeluaran> getListLaporanPengeluaran(Date d)  {
+    public ArrayList<Pengeluaran> getListLaporanPengeluaran(Date d1,Date d2)  {
         try {
             ArrayList<Pengeluaran> listPengeluaran  = new ArrayList<>();
             buatKoneksi();
-            String q = "select id_Pengeluaran, Tanggal, Jenis, Saldo, Kode_Civitas from Pengeluaran where Tanggal = '"+d+"'";
+            String q = "select id_Pengeluaran, Tanggal, Jenis, Saldo, Kode_Civitas from Pengeluaran where (Tanggal BETWEEN '"+d1+"' AND '"+d2+"')";
             stmt = c.createStatement();
             ResultSet rs2 = stmt.executeQuery(q);
             while(rs2.next()){

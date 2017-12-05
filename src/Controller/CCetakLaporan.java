@@ -48,9 +48,9 @@ public class CCetakLaporan implements ActionListener {
             CL.dispose();
             
         }
-        else if (e.getSource().equals(CL.getCetakButton())&&CL.getTanggalField()!=null){
+        else if (e.getSource().equals(CL.getCetakButton())&&CL.getTanggal1Field()!=null&&CL.getTanggal2Field()!=null){
             if(CL.getJenisBox().equals("Pemasukan")){
-                pemasukan = DB.getListLaporanPemasukan(new java.sql.Date(CL.getTanggalField().getTime()));
+                pemasukan = DB.getListLaporanPemasukan(new java.sql.Date(CL.getTanggal1Field().getTime()),new java.sql.Date(CL.getTanggal2Field().getTime()));
                 
                 String c[]= {"No Laporan","Jenis Laporan","Nominal","Tanggal","Kode Bank"};
                 String data[][] = new String[pemasukan.size()][c.length];
@@ -66,7 +66,7 @@ public class CCetakLaporan implements ActionListener {
                 exportToExcel(c,data,i,4,"Pemasukan");
             }
             else if(CL.getJenisBox().equals("Pengeluaran")){
-                pengeluaran = DB.getListLaporanPengeluaran(new java.sql.Date(CL.getTanggalField().getTime()));
+                pengeluaran = DB.getListLaporanPengeluaran(new java.sql.Date(CL.getTanggal1Field().getTime()),new java.sql.Date(CL.getTanggal2Field().getTime()));
                 
                 String c1[]= {"No Laporan","Jenis Laporan","Nominal","Tanggal","Kode Civitas"};
                 String data1[][] = new String[pengeluaran.size()][c1.length];

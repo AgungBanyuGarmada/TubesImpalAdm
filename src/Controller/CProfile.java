@@ -40,10 +40,13 @@ public class CProfile implements ActionListener{
             }
         }
         else if(e.getSource().equals(p.getBtnBatal())){
-            p.setVisible(false);
-            p.dispose();
-            CMMR mm=new CMMR(DB.getRektor().getNama());
+            toMainMenuRektor();
         }
+        
     }
-       
+    public void toMainMenuRektor(){
+        p.setVisible(false);
+        p.dispose();
+        CMMR mm=new CMMR(DB.getRektor().getNama());
+    }
 }

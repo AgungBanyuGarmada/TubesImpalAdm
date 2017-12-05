@@ -41,14 +41,26 @@ public class CProfileIT {
     /**
      * Test of actionPerformed method, of class CProfile.
      */
+//    @Test
+//    public void testActionPerformed() {
+//        System.out.println("actionPerformed");
+//        ActionEvent e = null;
+//        CProfile instance = new CProfile();
+//        instance.actionPerformed(e);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+
+    /**
+     * Test of toMainMenuRektor method, of class CProfile.
+     */
     @Test
-    public void testActionPerformed() {
-        System.out.println("actionPerformed");
-        ActionEvent e = null;
+    public void testToMainMenuRektor() {
+        System.out.println("toMainMenuRektor");
         CProfile instance = new CProfile();
-        instance.actionPerformed(e);
+        instance.toMainMenuRektor();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }

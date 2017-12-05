@@ -41,14 +41,50 @@ public class CMMRIT {
     /**
      * Test of actionPerformed method, of class CMMR.
      */
+//    @Test
+//    public void testActionPerformed() {
+//        System.out.println("actionPerformed");
+//        ActionEvent e = null;
+//        CMMR instance = null;
+//        instance.actionPerformed(e);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+
+    /**
+     * Test of toProfile method, of class CMMR.
+     */
     @Test
-    public void testActionPerformed() {
-        System.out.println("actionPerformed");
-        ActionEvent e = null;
-        CMMR instance = null;
-        instance.actionPerformed(e);
+    public void testToProfile() {
+        System.out.println("toProfile");
+        CMMR instance = new CMMR("");
+        instance.toProfile();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of toData method, of class CMMR.
+     */
+    @Test
+    public void testToData() {
+        System.out.println("toData");
+        CMMR instance = new CMMR("");
+        instance.toData();
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of toLogin method, of class CMMR.
+     */
+    @Test
+    public void testToLogin() {
+        System.out.println("toLogin");
+        CMMR instance = new CMMR("");
+        instance.toLogin();
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
     }
     
 }

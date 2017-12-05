@@ -24,23 +24,32 @@ public class CMMR implements ActionListener{
         MMR.setActionListener(this);
         MMR.setNamaRektor(nama);
     }
-
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource().equals(MMR.getBtnLogout())){
-            MMR.setVisible(false);
-            MMR.dispose();
-            CLogin CL = new CLogin();
+            toLogin();
         }
         else if (e.getSource().equals(MMR.getBtnLDK())){
-            MMR.setVisible(false);
-            MMR.dispose();
-            CData c= new CData();
+            toData();
         }
         else if (e.getSource().equals(MMR.getBtnProfile())){
-            MMR.setVisible(false);
-            MMR.dispose();
-            CProfile c= new CProfile();
+            toProfile();
         }
+    }
+    public void toProfile(){
+        MMR.setVisible(false);
+        MMR.dispose();
+        CProfile c= new CProfile();
+    }
+    public void toData(){
+        MMR.setVisible(false);
+        MMR.dispose();
+        CData c= new CData();
+    }
+    public void toLogin(){
+        MMR.setVisible(false);
+        MMR.dispose();
+        CLogin CL = new CLogin();
     }
 }

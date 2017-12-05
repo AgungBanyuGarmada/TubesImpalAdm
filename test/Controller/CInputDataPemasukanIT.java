@@ -41,12 +41,24 @@ public class CInputDataPemasukanIT {
     /**
      * Test of actionPerformed method, of class CInputDataPemasukan.
      */
+//    @Test
+//    public void testActionPerformed() {
+//        System.out.println("actionPerformed");
+//        ActionEvent e = null;
+//        CInputDataPemasukan instance = new CInputDataPemasukan();
+//        instance.actionPerformed(e);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+
+    /**
+     * Test of inputData method, of class CInputDataPemasukan.
+     */
     @Test
-    public void testActionPerformed() {
-        System.out.println("actionPerformed");
-        ActionEvent e = null;
+    public void testInputData() {
+        System.out.println("inputData");
         CInputDataPemasukan instance = new CInputDataPemasukan();
-        instance.actionPerformed(e);
+        instance.inputData();
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }

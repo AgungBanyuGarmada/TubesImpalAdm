@@ -44,12 +44,7 @@ public class CInputDataPengeluaran implements ActionListener {
                 IDP.dispose();
                 CMainMenu MM = new CMainMenu();
             }else if (e.getSource().equals(IDP.getSimpanButton())&&IDP.getJumlahField()!=0&&IDP.getTanggalField()!=null){
-                IDPengeluaran++;
-                P= new Pengeluaran(String.valueOf(IDPengeluaran)
-                        , new java.sql.Date(IDP.getTanggalField().getTime())
-                        , IDP.getJumlahField(),IDP.getJenisField(),DB.getCivitas(IDP.getIDCivitasField()));
-                DB.LaporanPengeluaran(P);
-                IDP.showMessage("Data Telah Tersimpan");
+                
                 CMainMenu MM = new CMainMenu();
                 IDP.setVisible(false);
                 IDP.dispose();
@@ -61,6 +56,15 @@ public class CInputDataPengeluaran implements ActionListener {
             ex.printStackTrace();
         }
     }
-    
+    public void inputPengeluaran(){
+        if (IDP.getJumlahField()!=0&&IDP.getTanggalField()!=null){
+            IDPengeluaran++;
+                P= new Pengeluaran(String.valueOf(IDPengeluaran)
+                        , new java.sql.Date(IDP.getTanggalField().getTime())
+                        , IDP.getJumlahField(),IDP.getJenisField(),DB.getCivitas(IDP.getIDCivitasField()));
+                DB.LaporanPengeluaran(P);
+                IDP.showMessage("Data Telah Tersimpan");
+        }
+    }
     
 }

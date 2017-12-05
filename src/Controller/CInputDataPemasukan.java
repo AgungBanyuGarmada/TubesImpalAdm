@@ -45,19 +45,24 @@ public class CInputDataPemasukan implements ActionListener{
                 IDP.dispose();
                 CMainMenu MM = new CMainMenu();
             }else if (e.getSource().equals(IDP.getSimpanButton())&&IDP.getJumlahField()!=0&&IDP.getTanggalField()!=null){
-                IDPemasukan++;
-                P= new Pemasukan(String.valueOf(IDPemasukan)
-                        , new java.sql.Date(IDP.getTanggalField().getTime())
-                        , IDP.getJenisField(), 
-                        IDP.getJumlahField(), DB.getBank(IDP.getIDBankField()));
-                DB.LaporanPemasukan(P);
-                IDP.showMessage("Data Telah Tersimpan");
+                inputData();
                 IDP.setVisible(false);
                 IDP.dispose();
                 CMainMenu MM = new CMainMenu();
             }
         }catch(Exception ex){
             ex.printStackTrace();
+        }
+    }
+    public void inputData(){
+        if(IDP.getJumlahField()!=0&&IDP.getTanggalField()!=null){
+            IDPemasukan++;
+                P= new Pemasukan(String.valueOf(IDPemasukan)
+                        , new java.sql.Date(IDP.getTanggalField().getTime())
+                        , IDP.getJenisField(), 
+                        IDP.getJumlahField(), DB.getBank(IDP.getIDBankField()));
+                DB.LaporanPemasukan(P);
+                IDP.showMessage("Data Telah Tersimpan");
         }
     }
     

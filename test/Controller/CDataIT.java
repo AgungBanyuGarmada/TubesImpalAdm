@@ -5,14 +5,16 @@
  */
 package Controller;
 
+import Model.Pemasukan;
+import Model.Pengeluaran;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import View.*;
 
 /**
  *
@@ -42,17 +44,38 @@ public class CDataIT {
     /**
      * Test of actionPerformed method, of class CData.
      */
-    @Test
-    public void testActionPerformed() throws InterruptedException {
-        System.out.println("actionPerformed");
-        Data d=new Data();
-        boolean status = false;
+//    @Test
+//    public void testActionPerformed() {
+//        System.out.println("actionPerformed");
 //        ActionEvent e = null;
+//        CData instance = new CData();
+//        instance.actionPerformed(e);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+
+    /**
+     * Test of setPemasukanTable method, of class CData.
+     */
+    @Test
+    public void testSetPemasukanTable() {
+        System.out.println("setPemasukanTable");
+        ArrayList<Pemasukan> pemasukan = new ArrayList<>();
         CData instance = new CData();
-//        e.equals(d.getPemasukanKembaliButton());
-        boolean exR =false;
-        boolean result = instance.actionPerformed(status);
-        assertEquals(exR , result);
+        instance.setPemasukanTable(pemasukan);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of setPengeluaranTable method, of class CData.
+     */
+    @Test
+    public void testSetPengeluaranTable() {
+        System.out.println("setPengeluaranTable");
+        ArrayList<Pengeluaran> pengeluaran = new ArrayList<>();
+        CData instance = new CData();
+        instance.setPengeluaranTable(pengeluaran);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }

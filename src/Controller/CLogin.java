@@ -34,7 +34,7 @@ public class CLogin implements ActionListener{
 //        d.saveKaryawan();
     }
     
-    public void LoginButtonPerformed(ActionEvent e){
+    public void LoginButtonPerformed(){
         if(login.getUsernameField().equals(id) && login.getPasswordField().equals(pw))
         {
             login.setVisible(false);
@@ -58,7 +58,7 @@ public class CLogin implements ActionListener{
     public void actionPerformed(ActionEvent e) {
             try {
                 if(e.getSource().equals(login.getLoginButton()))
-                    LoginButtonPerformed(e);
+                    LoginButtonPerformed();
             } 
             catch (Exception ex) {
                 Logger.getLogger(CLogin.class.getName()).log(Level.SEVERE, null, ex);
